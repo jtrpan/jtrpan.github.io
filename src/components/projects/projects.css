@@ -1,0 +1,12 @@
+@import '../../../node_modules/@sl-codeblaster/react-3d-animated-card/dist/index.css';
+
+body {
+    background-color: #5D5C61;
+    zoom: 95%;
+}
+*{
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}

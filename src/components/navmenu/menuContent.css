@@ -1,0 +1,36 @@
+.menu {
+    font-family: sans-serif;
+  }
+  
+  .menu-item {
+    color: #c0c3c4;
+    border-bottom: 1px solid #c0c3c4;
+  }
+  
+  .menu-item a {
+    display: block;
+    padding: .9rem 15px;
+    text-decoration: none;
+    font-family: Poppins;
+    color: #c0c3c4;
+  }
+  
+  .menu-item a:hover {
+    color: white;
+    text-decoration: none;
+    background-color: #49484b;
+  }
+  
+  .menu-item a:focus {
+    text-decoration: none;
+  }
+  
+  .active-menu-item {
+    background-color: #e8e8f9;
+  }
+  
+  .hint {
+    padding: .0rem 15px;
+    font-family: Open Sans;
+    color: #c0c3c4
+  }
