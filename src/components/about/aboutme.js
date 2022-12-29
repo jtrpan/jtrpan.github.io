@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import SplitText from 'react-pose-text';
 import Fade from 'react-reveal/Fade';
 import {Link} from 'react-router-dom';
-import Particles from 'react-particles-js';
+import Particles from "react-tsparticles"
 import {Container, Row, Col} from 'reactstrap';
 
 import * as Styled from './aboutme.style';

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
 import { TaggedContentCard } from 'react-ui-cards';
-import Particles from 'react-particles-js';
+import Particles from "react-tsparticles"
 
 import * as Styled from './projects.style';
 import './projects.style.js';

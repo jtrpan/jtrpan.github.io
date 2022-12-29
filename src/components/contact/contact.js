@@ -7,7 +7,7 @@ import Fade from 'react-reveal/Fade';
 import * as Styled from './contact.style';
 import './contact.style.js';
 import Emoji from '../emoji';
-import Particles from "react-particles-js";
+import Particles from "react-tsparticles"
 
 const particlesInit = (main) => {
     console.log(main);

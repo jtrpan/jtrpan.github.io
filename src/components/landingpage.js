@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TextLoop from "react-text-loop";
-import Particles from 'react-particles-js';
+import Particles from "react-tsparticles"
 import Fade from 'react-reveal/Fade';
 
 import * as Styled from './landingpage.style';
