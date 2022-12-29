@@ -1,7 +1,0 @@
-{
-    "appService.zipIgnorePattern": [
-        ".vscode{,/**}"
-    ],
-    "appService.deploySubpath": "",
-    "appService.defaultWebAppToDeploy": ""
-}
