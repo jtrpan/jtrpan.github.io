@@ -10,7 +10,6 @@ export const Heading = styled.h1`
   .city-link {
     text-decoration: none;
     display: inline-block;
-    user-select: none;  
     -webkit-tap-highlight-color: transparent;
     transition: transform 0.4s ease-in-out;
     pointer-events: auto;
@@ -50,7 +49,6 @@ export const Heading = styled.h1`
     font-family: Comfortaa;
     color: #B1A296;
     pointer-events: none;
-    user-select: none;
   }
 
   .landingBlock {

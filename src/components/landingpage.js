@@ -32,7 +32,7 @@ class Landing extends React.Component {
 
     render() {
         return (<Styled.Wrapper>
-            <Particles id="tsparticles"/>
+            <Particles/>
             <Styled.Heading>
                 <div className="landingBlock">
                         <span className="helloTitle">
@@ -93,11 +93,10 @@ class Landing extends React.Component {
                                       tabIndex="-1"
                                       className="city-link_content"
                                   >
-                                    UBC
+                                    UBC.
                                   </span>
                             </a>
                       </span>
-                    .
                 </div>
                 <div className="extraLine">
                     <Fade duration={1600} delay={35500}>
