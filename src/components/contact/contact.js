@@ -58,7 +58,7 @@ class Contact extends Component {
                         </div>
                         <div>
                             <Fade duration={1000} delay={2400}>
-                                <a href="mailto: james.pan@alumni.ubc.ca" target="_blank" rel="noopener noreferrer" className="contact-link" aria-label="Projects Page">
+                                <a href="mailto:jtrpan@gmail.com" target="_blank" className="contact-link" aria-label="Email me!">
                                     <span tabIndex="-1" className="contact-link_content">
                                         Let's talk.  <Emoji symbol="🤙" label="call me"/>
                                     </span>

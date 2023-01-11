@@ -50,7 +50,7 @@ export const Heading = styled.h1`
   }
 
   .hintText {
-    font-size: calc(10px + (64 - 52) * ((100vw - 320px) / (1700 - 320))) !important;
+    font-size: calc(7px + (64 - 52) * ((100vw - 320px) / (1700 - 320))) !important;
     text-align: left;
     font-weight: lighter;
     font-style: italic;

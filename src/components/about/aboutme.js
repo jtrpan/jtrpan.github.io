@@ -11,20 +11,14 @@ import my_pdf from '../pdfs/resume.pdf'
 import Emoji from '../emoji';
 
 const introLine = {
-    exit: {opacity: 0, y: 20},
-    enter: {
-        opacity: 1,
-        y: 0,
-        delay: ({wordIndex}) => wordIndex * 140 + 1000
+    exit: {opacity: 0, y: 20}, enter: {
+        opacity: 1, y: 0, delay: ({wordIndex}) => wordIndex * 140 + 1000
     }
 };
 
 const wordOne = {
-    exit: {opacity: 0, y: 20},
-    enter: {
-        opacity: 1,
-        y: 0,
-        delay: ({wordIndex}) => wordIndex * 200 + 400
+    exit: {opacity: 0, y: 20}, enter: {
+        opacity: 1, y: 0, delay: ({wordIndex}) => wordIndex * 200 + 400
     }
 };
 
@@ -32,16 +26,13 @@ class About extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: true,
-            windowWidth: window.innerWidth,
-            windowHeight: window.innerHeight,
+            open: true, windowWidth: window.innerWidth, windowHeight: window.innerHeight,
         }
     }
 
     updateDimensions = () => {
         this.setState({
-            windowWidth: window.innerWidth,
-            windowHeight: window.innerHeight,
+            windowWidth: window.innerWidth, windowHeight: window.innerHeight,
         });
     }
 
@@ -58,39 +49,37 @@ class About extends Component {
     }
 
     render() {
-        return (
-            <Styled.StyledView>
-                <Particles/>
-                <Styled.Wrapper>
-                    <Styled.Heading>
-                        <div className="introLine">
-                            <SplitText initialPose="exit" pose="enter" charPoses={wordOne}>
-                                Hi.
-                            </SplitText><span> </span>
-                            <SplitText initialPose="exit" pose="enter" charPoses={introLine}>
-                                It's nice to meet you.
-                            </SplitText>
-                        </div>
-                        <Container>
-                            <Row>
-                                <Col>
-                                    <div className="infoText" style={{
-                                        maxWidth: "100%",
-                                        display: "block",
-                                        textAlign: "center",
-                                    }}>
-                                        <Fade duration={1600} delay={2000}>
-                                            <div>
+        return (<Styled.StyledView>
+            <Particles/>
+            <Styled.Wrapper>
+                <Styled.Heading>
+                    <div className="introLine">
+                        <SplitText initialPose="exit" pose="enter" charPoses={wordOne}>
+                            Hi.
+                        </SplitText><span> </span>
+                        <SplitText initialPose="exit" pose="enter" charPoses={introLine}>
+                            It's nice to meet you.
+                        </SplitText>
+                    </div>
+                    <Container>
+                        <Row>
+                            <Col>
+                                <div className="infoText" style={{
+                                    maxWidth: "100%", display: "block", textAlign: "center",
+                                }}>
+                                    <Fade duration={1600} delay={2000}>
+                                        <div>
                                                 <span className="specialText">
-                                                    My name is James. I'm an engineering undergraduate based in Ottawa, Canada. <Emoji
+                                                    My name is James. I'm an engineering undergraduate based in Vancouver, Canada. <Emoji
                                                     symbol="🍁" label="maple leaf"/>
                                                 </span>
-                                                <br/>
-                                                <span className="specialText">
+                                            <br/>
+                                            <span className="specialText">
                                                     I like to build <span> </span>
                                                 <span>
                                                 <Link
                                                     to="/projects"
+                                                    target="_blank"
                                                     onClick={this.props.closeCallback}
                                                     className="project-link">
                                                     <span className="project-link_content">
@@ -98,14 +87,10 @@ class About extends Component {
                                                     </span>
                                                 </Link>
                                                 .
-                                                Currently, I'm working as a Software Engineer at the National Research Council.
+                                                Currently, I'm working as a Software Developer at Antario Financial.
                                                 <span> </span>
-                                                <Emoji symbol="🔬" label="microscope"/>
-                                                <br/>
-                                                We're building the next generation of wireless data networks - "6G", so to speak.
-                                                <br/><br/>
-                                                Previously, I worked as a Front-End Web Developer at Antario Financial - a fintech <br/>
-                                                start-up striving to provide smart, closed-loop<span> </span>
+                                                <Emoji symbol="💳" label="credit card"/><br/>
+                                                We're a fintech start-up striving to provide smart, closed-loop<span> </span>
                                                 <a
                                                     href="https://www.ucanpay.ca"
                                                     target="_blank"
@@ -122,8 +107,12 @@ class About extends Component {
                                                 </a>
                                                 <span> </span>
                                                 across the nation.
+                                                <br/><br/>
+                                                Previously, I worked as a Software Engineer within the AEP division at the National Research Council.
                                                 <span> </span>
-                                                <Emoji symbol="💳" label="credit card"/>
+                                                <Emoji symbol="🔬" label="microscope"/>
+                                                <br/>
+                                                There, my work consisted of researching the next generation of wireless data networks - "6G", so to speak.
                                                 <br/><br/>
                                                 I've also spent some time as an Avionics Engineer on <span></span>
                                                 <span>
@@ -144,7 +133,7 @@ class About extends Component {
                                                 </span>
                                                 <span> </span>
                                                 <span>
-                                                    to help make things
+                                                    to help make things that
                                                 </span>
                                                 <span> </span>
                                                 <span>
@@ -187,8 +176,9 @@ class About extends Component {
                                                     <br/> <span> </span>
                                                     <br/>
                                                     <span className="specialText">
-                                                When I'm not in class, you can find me in the workshop <Emoji symbol="🛠️"
-                                                                                                              label="tools"/><span>.  </span>
+                                                When I'm not in class, you can find me in the workshop <Emoji
+                                                        symbol="🛠️"
+                                                        label="tools"/><span>.  </span>
                                                 Or at the archery range <Emoji symbol="🏹"
                                                                                label="bow and arrow"/><span>.  </span>
                                                 Or in the pool <Emoji symbol="🏊" label="swimming"/><span>.  </span>
@@ -201,6 +191,7 @@ class About extends Component {
                                                 </span>
                                                     <br/>
                                                     <span className="specialText">
+                                                    <br/>
                                                 To save you the trouble, <span> </span>
                                                 <span>
                                                 <a
@@ -243,19 +234,18 @@ class About extends Component {
                                                     <br/>
                                                     <span className="hintText">
                                                 <br/>
-                                                *Some pesky easter eggs are lurking about on my website. Try clicking around!
+                                                *There seem to be some fun easter eggs lurking about on my website. Try clicking around!
                                                 </span>
                                                 </span>
-                                            </div>
-                                        </Fade>
-                                    </div>
-                                </Col>
-                            </Row>
-                        </Container>
-                    </Styled.Heading>
-                </Styled.Wrapper>
-            </Styled.StyledView>
-        )
+                                        </div>
+                                    </Fade>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Container>
+                </Styled.Heading>
+            </Styled.Wrapper>
+        </Styled.StyledView>)
     }
 }
 
