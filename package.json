@@ -38,6 +38,7 @@
     "tsparticles": "^2.7.1"
   },
   "scripts": {
+    "prestart": "react-scripts build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
