@@ -31,57 +31,58 @@ class Landing extends React.Component {
     }
 
     render() {
-        return (<Styled.Wrapper>
-            <Particles/>
-            <Styled.Heading>
-                <div className="landingBlock">
+        return (
+            <Styled.Wrapper>
+                <Styled.Heading>
+                    <Particles/>
+                    <div className="landingBlock">
                         <span className="helloTitle">
                           Hello World.
                         </span>
-                    <br/>
-                    My name is
-                    James Pan.&nbsp;
-                    <br/>
-                    I'm<span> </span>
-                    <TextLoop
-                        interval={2500}
-                        springConfig={{stiffness: 30, damping: 10}}
-                        mask
-                    >
+                        <br/>
+                        My name is
+                        James Pan.&nbsp;
+                        <br/>
+                        I'm<span> </span>
+                        <TextLoop
+                            interval={2500}
+                            springConfig={{stiffness: 30, damping: 10}}
+                            mask
+                        >
                             <span className="scrollTitle">
                               a Student
                             </span>
-                        <span className="scrollTitle">
+                            <span className="scrollTitle">
                               a Web Developer
                             </span>
-                        <span className="scrollTitle">
+                            <span className="scrollTitle">
                               an Engineer
                             </span>
-                        <span className="scrollTitle">
+                            <span className="scrollTitle">
                               a Swimmer
                             </span>
-                        <span className="scrollTitle">
+                            <span className="scrollTitle">
                               a Tech Geek
                             </span>
-                        <span className="scrollTitle">
+                            <span className="scrollTitle">
                               an Archer
                             </span>
-                        <span className="scrollTitle">
+                            <span className="scrollTitle">
                               a Designer
                             </span>
-                        <span className="scrollTitle">
+                            <span className="scrollTitle">
                               a Snowboarder
                             </span>
-                        <span className="scrollTitle">
+                            <span className="scrollTitle">
                               a Melophile
                             </span>
-                        <span className="scrollTitle">
+                            <span className="scrollTitle">
                               a Programmer
                             </span>
-                    </TextLoop>
-                    <span> </span>
-                    from<span> </span>
-                    <span>
+                        </TextLoop>
+                        <span> </span>
+                        from<span> </span>
+                        <span>
                             <a
                                 href="https://www.ubc.ca/"
                                 target="_blank"
@@ -97,32 +98,32 @@ class Landing extends React.Component {
                                   </span>
                             </a>
                       </span>
-                </div>
-                <div className="extraLine">
-                    <Fade duration={1600} delay={35500}>
-                        <div>
-                                <span>
-                                    Well, you're quite the patient one.
-                                </span>
-                        </div>
-                    </Fade>
-                    <Fade duration={1600} delay={38000}>
-                        <div>
+                    </div>
+                    <div className="extraLine">
+                        <Fade duration={1600} delay={35500}>
+                            <div>
                                 <span>
                                     Reading through all of the different titles?
                                 </span>
-                        </div>
-                    </Fade>
-                    <Fade duration={1600} delay={40000}>
-                        <div>
+                            </div>
+                        </Fade>
+                        <Fade duration={1600} delay={38000}>
+                            <div>
                                 <span>
-                                    I'm afraid you've reached the end. Thanks for sticking around.
+                                    I'm afraid you've seen all of them by now.
                                 </span>
-                        </div>
-                    </Fade>
-                </div>
-            </Styled.Heading>
-        </Styled.Wrapper>);
+                            </div>
+                        </Fade>
+                        <Fade duration={1600} delay={40000}>
+                            <div>
+                                <span>
+                                    Thanks for sticking around.
+                                </span>
+                            </div>
+                        </Fade>
+                    </div>
+                </Styled.Heading>
+            </Styled.Wrapper>);
     }
 }
 

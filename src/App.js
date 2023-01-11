@@ -25,6 +25,7 @@ class App extends Component {
   render(){
     return(
       <div>
+        <Main/>
         <div className="Menu-icon">
           <CheeseburgerMenu
             isOpen={this.state.menuOpen}
@@ -48,7 +49,6 @@ class App extends Component {
             animationDuration={1.5}
           />
         </div>
-        <Main/>
       </div>
     );
   }

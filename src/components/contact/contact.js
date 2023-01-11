@@ -7,14 +7,7 @@ import Fade from 'react-reveal/Fade';
 import * as Styled from './contact.style';
 import './contact.style.js';
 import Emoji from '../emoji';
-import Particles from "react-tsparticles"
-
-const particlesInit = (main) => {
-    console.log(main);
-}
-const particlesLoaded = (container) => {
-    console.log(container);
-}
+import Particles from '.././particles/ContactParticles.js';
 
 class Contact extends Component {
     constructor(props) {
@@ -48,38 +41,7 @@ class Contact extends Component {
     render() {
         return(
             <Styled.Wrapper>
-                <Particles
-                    id="landingparticles"
-                    init={particlesInit}
-                    loaded={particlesLoaded}
-                    width={this.state.windowWidth}
-                    height={this.state.windowHeight}
-                    params={{
-                        particles: {
-                            number: {
-                                value: this.state.windowWidth*this.state.windowHeight/15500,
-                            },
-                            size: {
-                                value: 2
-                            }
-                        },
-                        interactivity: {
-                            detect_on: "canvas",
-                            events: {
-                                onhover: {
-                                    enable: true,
-                                    mode: "repulse"
-                                },
-                                onclick: {
-                                    enable: true,
-                                    mode: "push"
-                                },
-                                resize: true
-                            },
-                        },
-                        "retina_detect": true
-                    }}
-                />
+                <Particles/>
                 <Styled.Heading>
                     <div>
                         <br/>

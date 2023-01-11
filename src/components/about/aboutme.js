@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import SplitText from 'react-pose-text';
 import Fade from 'react-reveal/Fade';
 import {Link} from 'react-router-dom';
-import Particles from "react-tsparticles"
+import Particles from '.././particles/AboutParticles.js';
 import {Container, Row, Col} from 'reactstrap';
 
 import * as Styled from './aboutme.style';
@@ -27,13 +27,6 @@ const wordOne = {
         delay: ({wordIndex}) => wordIndex * 200 + 400
     }
 };
-
-const particlesInit = (main) => {
-    console.log(main);
-}
-const particlesLoaded = (container) => {
-    console.log(container);
-}
 
 class About extends Component {
     constructor(props) {
@@ -67,65 +60,7 @@ class About extends Component {
     render() {
         return (
             <Styled.StyledView>
-                <Particles
-                    id="landingparticles"
-                    init={particlesInit}
-                    loaded={particlesLoaded}
-                    width={this.state.windowWidth}
-                    height={this.state.windowHeight}
-                    params={{
-                        fpsLimit: 200,
-                        particles: {
-                            number: {
-                                value: this.state.windowWidth*this.state.windowHeight/8400,
-                            },
-                            size: {
-                                value: 2,
-                                random: true,
-                                anim: {
-                                    speed: 3,
-                                    size_min: 0.3
-                                }
-                            },
-                            line_linked: {
-                                enable: false
-                            },
-                            move: {
-                                random: true,
-                                speed: 1,
-                                direction: "top",
-                                out_mode: "out"
-                            }
-                        },
-                        interactivity: {
-                            events: {
-                                onhover: {
-                                    enable: true,
-                                    mode: "bubble"
-                                },
-                                onclick: {
-                                    enable: true,
-                                    mode: "repulse"
-                                }
-                            },
-                            modes: {
-                                bubble: {
-                                    distance: 40,
-                                    duration: 2,
-                                    size: 0,
-                                    opacity: 0
-                                },
-                                repulse: {
-                                    distance: 160,
-                                    duration: 6
-                                }
-                            }
-                        }
-                    }}
-                    style={{
-                        width: "100%",
-                        height: "100%",
-                    }}/>
+                <Particles/>
                 <Styled.Wrapper>
                     <Styled.Heading>
                         <div className="introLine">

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
 import { TaggedContentCard } from 'react-ui-cards';
-import Particles from "react-tsparticles"
+import Particles from '.././particles/ProjectParticles.js';
 
 import * as Styled from './projects.style';
 import './projects.style.js';
@@ -14,13 +14,6 @@ import img4 from '../images/img4.png'
 import img5 from '../images/img5.png'
 import img6 from '../images/img6.png'
 import img7 from '../images/img7.png'
-
-const particlesInit = (main) => {
-    console.log(main);
-}
-const particlesLoaded = (container) => {
-    console.log(container);
-}
 
 export class Projects extends Component {
     constructor(props) {
@@ -56,6 +49,7 @@ export class Projects extends Component {
             <div>
                 <Styled.Wrapper>
                     <Styled.Heading>
+                        <Particles/>
                         <div className="introLine">
                             <Fade top duration={1200} delay={300}>
                                 <div>
@@ -135,48 +129,6 @@ export class Projects extends Component {
                         <br/>
                     </Styled.Heading>
                 </Styled.Wrapper>
-                <Particles
-                    id="landingparticles"
-                    init={particlesInit}
-                    loaded={particlesLoaded}
-                    width={this.state.windowWidth}
-                    height={this.state.windowHeight}
-                    params={{
-                        "particles": {
-                            "number": {
-                                "value": this.state.windowWidth*this.state.windowHeight/7500,
-                                "density": {
-                                    "enable": false
-                                }
-                            },
-                            "size": {
-                                "value": 3,
-                                "random": true,
-                                "anim": {
-                                    "speed": 3,
-                                    "size_min": 0.3
-                                }
-                            },
-                            "line_linked": {
-                                "enable": false
-                            },
-                            "move": {
-                                "random": true,
-                                "speed": 4,
-                                "out_mode": "out"
-                            }
-                        },
-                        "interactivity": {
-                            detect_on: "canvas",
-                            events: {
-                                onclick: {
-                                    enable: true,
-                                    mode: "push"
-                                },
-                                resize: true
-                            },
-                        },
-                    }} />
             </div>
         )
     }
