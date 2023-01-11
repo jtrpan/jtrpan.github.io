@@ -1,6 +1,6 @@
 {
-  "name": "my-site",
-  "version": "0.1.0",
+  "name": "jtrpan",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
@@ -38,11 +38,12 @@
     "tsparticles": "^2.7.1"
   },
   "scripts": {
-    "prestart": "react-scripts build",
+    "prestart": "npm install",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm install"
   },
   "eslintConfig": {
     "extends": "react-app"
