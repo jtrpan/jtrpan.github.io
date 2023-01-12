@@ -1,6 +1,7 @@
 {
   "name": "jtrpan",
   "version": "1.0.0",
+  "homepage": "https://jtrpan.github.io./",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
@@ -38,7 +39,10 @@
     "tsparticles": "^2.7.1"
   },
   "scripts": {
-    "prestart": "npm audit fix",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -59,5 +63,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
