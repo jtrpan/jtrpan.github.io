@@ -1,3 +1,4 @@
+import React from 'react';
 import Particles from "react-tsparticles";
 import {loadSlim} from "tsparticles-slim"; // loads tsparticles-slim
 import {loadFull} from "tsparticles"; // loads tsparticles
