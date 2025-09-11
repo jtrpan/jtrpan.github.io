@@ -46,38 +46,47 @@ class Landing extends React.Component {
                         I'm<span> </span>
                         <TextLoop
                             interval={2500}
-                            springConfig={{stiffness: 30, damping: 10}}
+                            springConfig={{stiffness: 40, damping: 6}}
                             mask
                         >
                             <span className="scrollTitle">
-                              a Student
-                            </span>
-                            <span className="scrollTitle">
-                              a Web Developer
-                            </span>
-                            <span className="scrollTitle">
                               an Engineer
+                            </span>
+                            <span className="scrollTitle">
+                              a Developer
+                            </span>
+                            <span className="scrollTitle">
+                              an Athlete
+                            </span>
+                            <span className="scrollTitle">
+                              a Tech Enthusiast
+                            </span>
+                            <span className="scrollTitle">
+                              a Leader
+                            </span>
+                            <span className="scrollTitle">
+                              a Musician
+                            </span>
+                            <span className="scrollTitle">
+                              a Programmer
                             </span>
                             <span className="scrollTitle">
                               a Swimmer
                             </span>
                             <span className="scrollTitle">
-                              a Tech Geek
+                              a Designer
                             </span>
                             <span className="scrollTitle">
                               an Archer
                             </span>
                             <span className="scrollTitle">
-                              a Designer
+                              a Photographer
                             </span>
                             <span className="scrollTitle">
                               a Snowboarder
                             </span>
                             <span className="scrollTitle">
-                              a Melophile
-                            </span>
-                            <span className="scrollTitle">
-                              a Programmer
+                              an Adventurer
                             </span>
                         </TextLoop>
                         <span> </span>
