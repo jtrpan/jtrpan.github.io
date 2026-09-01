@@ -1,4 +1,4 @@
-import React, {Component, useCallback} from 'react';
+import React from 'react';
 import TextLoop from "react-text-loop";
 import Particles from './particles/LandingParticles.js';
 import Fade from 'react-reveal/Fade';

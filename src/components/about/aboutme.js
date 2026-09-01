@@ -70,8 +70,8 @@ class About extends Component {
                                     <Fade duration={1600} delay={2000}>
                                         <div>
                                                 <span className="specialText">
-                                                    My name is James. I'm an engineering undergraduate based in Vancouver, Canada. <Emoji
-                                                    symbol="🍁" label="maple leaf"/>
+                                                    My name is James. I'm a Master's student based in Munich, Germany. <Emoji
+                                                    symbol="🎓" label="graduation cap"/>
                                                 </span>
                                             <br/>
                                             <span className="specialText">
@@ -87,28 +87,16 @@ class About extends Component {
                                                     </span>
                                                 </Link>
                                                 .
-                                                Currently, I'm working as a Software Developer at Antario Financial.
+                                                Currently, I'm pursuing a Master's degree in Computational Science and Engineering at the Technical University of Munich.
                                                 <span> </span>
-                                                <Emoji symbol="💳" label="credit card"/><br/>
-                                                We're a fintech start-up striving to provide smart, closed-loop<span> </span>
-                                                <a
-                                                    href="https://www.ucanpay.ca"
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="project-link"
-                                                    aria-label="www.ucanpay.ca"
-                                                >
-                                                    <span
-                                                        tabIndex="-1"
-                                                        className="project-link_content"
-                                                    >
-                                                        mobile payments
-                                                    </span>
-                                                </a>
-                                                <span> </span>
-                                                across the nation.
+                                                <Emoji symbol="📚" label="books"/>
                                                 <br/><br/>
-                                                Previously, I worked as a Software Engineer within the AEP division at the National Research Council.
+                                                Before that, I worked as a Software Engineer at Hash Machinery Systems,
+                                                <span> </span>
+                                                <Emoji symbol="⚙️" label="gear"/> and prior to that, as a Software Developer at Antario Financial,
+                                                a fintech start-up building smart, closed-loop mobile payments.
+                                                <br/><br/>
+                                                Earlier still, I worked as a Software Engineer within the AEP division at the National Research Council.
                                                 <span> </span>
                                                 <Emoji symbol="🔬" label="microscope"/>
                                                 <br/>
