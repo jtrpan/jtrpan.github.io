@@ -48,6 +48,7 @@ class Landing extends React.Component {
                         <TextLoop
                             interval={2500}
                             springConfig={{stiffness: 40, damping: 6}}
+                            className="carousel-word"
                         >
                             <span className="scrollTitle">
                               an Engineer

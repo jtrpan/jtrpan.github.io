@@ -45,6 +45,12 @@ export const Heading = styled.h1`
       pointer-events: none;
   }
 
+  /* react-text-loop sets an inline width on this wrapper from a stale
+     measurement of the previous word; force it back to content width */
+  .carousel-word > div {
+      width: auto !important;
+  }
+
   .helloTitle {
     font-family: Comfortaa;
     color: #B1A296;
