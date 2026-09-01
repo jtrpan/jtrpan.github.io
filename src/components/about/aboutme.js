@@ -106,7 +106,7 @@ class About extends Component {
                                                 I've also spent some time as an Avionics Engineer on <span></span>
                                                 <span>
                                                     <a
-                                                        href="http://www.ubcaerodesign.com/"
+                                                        href="https://www.ubcaerodesign.com/"
                                                         target="_blank"
                                                         rel="noopener noreferrer"
                                                         className="project-link"
