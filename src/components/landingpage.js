@@ -28,6 +28,7 @@ class Landing extends React.Component {
 
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateDimensions);
+        document.body.style.overflow = 'auto';
     }
 
     render() {
@@ -88,22 +89,28 @@ class Landing extends React.Component {
                             <span className="scrollTitle">
                               an Adventurer
                             </span>
+                            <span className="scrollTitle">
+                              a Motorsport Fan
+                            </span>
+                            <span className="scrollTitle">
+                              a Gearhead
+                            </span>
                         </TextLoop>
                         <span> </span>
                         from<span> </span>
                         <span>
                             <a
-                                href="https://www.ubc.ca/"
+                                href="https://www.tum.de/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="city-link"
-                                aria-label="UBC Website"
+                                aria-label="TUM Website"
                             >
                                   <span
                                       tabIndex="-1"
                                       className="city-link_content"
                                   >
-                                    UBC.
+                                    TUM.
                                   </span>
                             </a>
                       </span>

@@ -40,12 +40,13 @@ class About extends Component {
         window.addEventListener('resize', this.updateDimensions);
         if (this.state.open) {
             window.scrollTo(0, 0);
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow = 'auto';
         }
     }
 
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateDimensions);
+        document.body.style.overflow = 'auto';
     }
 
     render() {
@@ -87,7 +88,7 @@ class About extends Component {
                                                     </span>
                                                 </Link>
                                                 .
-                                                Currently, I'm pursuing a Master's degree in Computational Science and Engineering at the Technical University of Munich.
+                                                I graduated from UBC in 2023, and I'm currently pursuing a Master's degree in Computational Science and Engineering (CSE) at the Technical University of Munich, where I'm especially interested in computational fluid dynamics (CFD) and high-performance computing (HPC).
                                                 <span> </span>
                                                 <Emoji symbol="📚" label="books"/>
                                                 <br/><br/>
@@ -179,6 +180,11 @@ class About extends Component {
                                                 </span>
                                                     <br/>
                                                     <span className="specialText">
+                                                Outside of all that, I'm a huge Formula 1, car, and airplane enthusiast <Emoji symbol="🏎️" label="racing car"/><Emoji symbol="✈️" label="airplane"/><span>, </span>
+                                                and I'm always tinkering with the latest tech <Emoji symbol="💻" label="laptop"/>
+                                                </span>
+                                                    <br/>
+                                                    <span className="specialText">
                                                     <br/>
                                                 To save you the trouble, <span> </span>
                                                 <span>
@@ -196,33 +202,7 @@ class About extends Component {
                                                 </span>
                                                 </a>
                                                 </span> <span> </span>
-                                                is the best way to reach me. <Emoji symbol="💬" label="chat bubble"/>
-                                                </span>
-                                                    <br/>
-                                                    <span className="specialText">
-                                                I'll get back to you as soon as possible - in the meantime, why not solve a
-                                                <span> </span>
-                                                <span>
-                                                <a
-                                                    href="javascript:alert('Sorry, not implemented yet. Keep your eyes peeled!');"
-                                                    rel="noopener noreferrer"
-                                                    className="project-link2"
-                                                    aria-label="What could this be?"
-                                                >
-                                                <span
-                                                    tabIndex="-1"
-                                                    className="project-link_content2"
-                                                >
-                                                secret puzzle
-                                                </span>
-                                                </a>
-                                                </span> <span> </span>
-                                                ?
-                                                </span>
-                                                    <br/>
-                                                    <span className="hintText">
-                                                <br/>
-                                                *There seem to be some fun easter eggs lurking about on my website. Try clicking around!
+                                                is the best way to reach me. <Emoji symbol="💬" label="chat bubble"/> I'll get back to you as soon as possible.
                                                 </span>
                                                 </span>
                                         </div>
