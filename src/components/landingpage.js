@@ -48,7 +48,6 @@ class Landing extends React.Component {
                         <TextLoop
                             interval={2500}
                             springConfig={{stiffness: 40, damping: 6}}
-                            mask
                         >
                             <span className="scrollTitle">
                               an Engineer

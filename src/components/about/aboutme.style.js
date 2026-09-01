@@ -33,6 +33,8 @@ export const Heading = styled.h1`
     left: 0%;
     top: 22%;
     right: 0;
+    padding: 0 6%;
+    box-sizing: border-box;
     font-size: calc(15px + (64 - 55) * ((130vw - 620px) / (1700 - 320))) !important;
     font-family: Lato;
     font-weight: lighter;

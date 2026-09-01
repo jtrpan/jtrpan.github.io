@@ -43,7 +43,6 @@ export const Heading = styled.h1`
   .scrollTitle {
       color: #7395AE;
       pointer-events: none;
-      padding-right: 0.1em;
   }
 
   .helloTitle {
