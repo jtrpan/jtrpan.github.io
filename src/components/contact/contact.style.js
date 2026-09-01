@@ -52,7 +52,7 @@ export const Heading = styled.h1`
   text-decoration: none;
   user-select: none;  
   -webkit-tap-highlight-color: transparent;
-  font-size: calc(100px + (64 - 22) * ((110vw - 1620px) / (1600 - 320))) !important;
+  font-size: min(calc(100px + (64 - 22) * ((110vw - 1620px) / (1600 - 320))), 12vw) !important;
   font-family: Fjalla One;
 
   :active {

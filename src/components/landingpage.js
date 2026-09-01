@@ -22,7 +22,7 @@ class Landing extends React.Component {
         window.addEventListener('resize', this.updateDimensions);
         if (this.state.open) {
             window.scrollTo(0, 0);
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow = 'auto';
         }
     }
 
