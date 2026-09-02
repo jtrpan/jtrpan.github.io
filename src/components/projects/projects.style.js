@@ -30,6 +30,7 @@ export const Heading = styled.h1`
 
     @media screen and (max-width: 768px) {
       flex-flow: column;
+      margin-top: 12vh;
     }
   }
 
@@ -46,6 +47,7 @@ export const Heading = styled.h1`
     font-family: Montserrat;
 
     @media screen and (max-width: 768px) {
+      position: static;
       flex-flow: column;
     }
   }
@@ -62,6 +64,8 @@ export const Heading = styled.h1`
     box-sizing: border-box;
 
     @media screen and (max-width: 768px) {
+      position: static;
+      top: auto;
       flex-flow: column;
     }
   }
@@ -77,6 +81,8 @@ export const Heading = styled.h1`
     box-sizing: border-box;
 
     @media screen and (max-width: 768px) {
+      position: static;
+      top: auto;
       flex-flow: column;
     }
   }
@@ -142,5 +148,4 @@ export const Heading = styled.h1`
 
 
 export const Wrapper = styled.section`
-  overflow: hidden;
 `;
