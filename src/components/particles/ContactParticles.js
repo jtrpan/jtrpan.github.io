@@ -36,7 +36,12 @@ const ParticlesComponent = (props) => {
             },
             particles: {
                 number: {
-                    value: 120,
+                    // a flat count crams the same 120 particles (and their
+                    // triangle-filled links) into a phone-sized canvas as
+                    // a desktop one - dense enough on mobile to wash the
+                    // whole background white and bury the text. Scale by
+                    // screen area instead, same as LandingParticles.
+                    value: Math.round((window.innerWidth * window.innerHeight) / 15500),
                 },
                 links: {
                     enable: true, // enabling this will make particles linked together
