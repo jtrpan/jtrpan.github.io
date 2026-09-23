@@ -11,21 +11,36 @@ export const Heading = styled.h1`
 
   .headerRow {
     display: flex;
-    flex-direction: column;
-    row-gap: 0.25em;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 2vw;
+    row-gap: 0.3em;
     padding-left: 22%;
   }
 
   .questionLine,
   .chatLine {
-    /* sized off viewport HEIGHT (clamped) rather than width, so it
-       scales with however much vertical room is actually available
-       instead of risking pushing the rows below it off screen */
-    font-size: clamp(18px, 3.4vh, 30px) !important;
+    font-size: calc(10px + (64 - 28) * ((100vw - 320px) / (1700 - 320))) !important;
     text-align: left;
     font-family: Lato;
     color: #c0c3c4;
     pointer-events: none;
+  }
+
+  /* mobile only - desktop/tablet keep the row above unchanged */
+  @media (max-width: 768px) {
+    .headerRow {
+      flex-direction: column;
+      row-gap: 0.25em;
+    }
+
+    .questionLine,
+    .chatLine {
+      /* sized off viewport HEIGHT (clamped) rather than width, so it
+         scales with however much vertical room is actually available
+         instead of risking pushing the rows below it off screen */
+      font-size: clamp(18px, 3.4vh, 30px) !important;
+    }
   }
 
   .talkRow {
