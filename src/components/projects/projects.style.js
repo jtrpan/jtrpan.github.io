@@ -87,6 +87,17 @@ export const Heading = styled.h1`
     }
   }
 
+  /* TaggedContentCard renders a fixed 420px-wide card with only
+     max-width:100% to shrink it, which doesn't resolve against a
+     column-direction flex parent - it stays 420px and overflows/clips
+     on any viewport narrower than ~490px. Cap the actual card width
+     instead of relying on the library's max-width. */
+  .cardRow1 > a > div,
+  .cardRow2 > a > div,
+  .cardRow3 > a > div {
+    width: min(420px, 85vw) !important;
+  }
+
   .introLine {
     position: absolute;
     left: 0%;

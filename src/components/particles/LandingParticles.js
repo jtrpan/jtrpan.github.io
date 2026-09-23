@@ -37,7 +37,12 @@ const ParticlesComponent = (props) => {
                 },
             }, particles: {
                 number: {
-                    value: 70,
+                    // a flat count packs the same 70 particles (and their
+                    // connecting links) into a phone-sized canvas as a
+                    // desktop one, making mobile look far more crowded;
+                    // scale by screen area instead, same ratio the old
+                    // (removed) responsive version used
+                    value: Math.round((window.innerWidth * window.innerHeight) / 15500),
                 },
                 links: {
                     enable: true, // enabling this will make particles linked together

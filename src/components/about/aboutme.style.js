@@ -5,7 +5,7 @@ export const Heading = styled.h1`
   background-color: #5D5C61;
 
   .introLine {
-    position: fixed;
+    position: absolute;
     left: 0%;
     top: 5.5%;
     right: 0;
@@ -33,7 +33,11 @@ export const Heading = styled.h1`
     left: 0%;
     top: 22%;
     right: 0;
-    padding: 0 6%;
+    /* .infoText is the only thing giving the page scrollable height
+       (it's absolutely positioned, so nothing else does), and with no
+       bottom padding the last line lands exactly flush with the
+       bottom of the scrollable area */
+    padding: 0 6% 5vh;
     box-sizing: border-box;
     font-size: calc(15px + (64 - 55) * ((130vw - 620px) / (1700 - 320))) !important;
     font-family: Lato;

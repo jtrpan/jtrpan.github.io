@@ -27,9 +27,16 @@ export const Heading = styled.h1`
 }
 
 .contactLine {
+  /* position: fixed would be the obvious choice to pin this to the
+     viewport, but this app has a global body zoom: 95% style (leaks in
+     from projects.css - it's eagerly imported into the shared bundle,
+     so it applies on every route) and Chrome's position:fixed breaks
+     under a zoomed ancestor - it renders this off-screen entirely.
+     absolute has no such issue and, since nothing here ever needs the
+     page to scroll, positions identically against the viewport. */
   position: absolute;
   left: 22%;
-  bottom: 12%;
+  bottom: 15%;
   right: 0;
   font-size: calc(10px + (64 - 44) * ((100vw - 320px) / (1700 - 320))) !important;
   text-align: left;
@@ -45,14 +52,19 @@ export const Heading = styled.h1`
 }
 
 .contact-link {
+  /* see .contactLine - position: fixed breaks under this app's global
+     zoom, so absolute is used instead */
   position: absolute;
-  top: 30%;
+  top: 38%;
   left: 22%;
   text-align: left;
   text-decoration: none;
   user-select: none;  
   -webkit-tap-highlight-color: transparent;
-  font-size: min(calc(100px + (64 - 22) * ((110vw - 1620px) / (1600 - 320))), 12vw) !important;
+  /* the 12vw cap alone made "Let's talk." huge on short/wide (landscape)
+     screens, tall enough to collide with .contactLine once it was moved
+     closer above; 18vh caps it by height too on those screens */
+  font-size: min(calc(100px + (64 - 22) * ((110vw - 1620px) / (1600 - 320))), 12vw, 12vh) !important;
   font-family: Fjalla One;
 
   :active {
@@ -90,15 +102,45 @@ export const Heading = styled.h1`
   outline: 3px solid turquoise;
 }
 
+.socialZoom {
+  zoom: 1.5;
+}
+
+/* at this zoom, 4 icons don't fit on one line below ~480px wide and
+   wrap to a 2nd row, which grows .buttonGroup tall enough to overlap
+   .contactLine above it (both are bottom-anchored independently) */
+@media (max-width: 480px), (max-height: 500px) {
+  .socialZoom {
+    zoom: 1;
+  }
+}
+
+/* short landscape phones are still tight even at zoom:1 */
+@media (max-height: 400px) {
+  .socialZoom {
+    zoom: 0.75;
+  }
+}
+
 .buttonGroup {
+  /* see .contactLine - position: fixed breaks under this app's global
+     zoom, so absolute is used instead */
   position: absolute;
   left: 22%;
-  bottom: 11%;
+  /* the gap above (to .contactLine) and below (to the viewport edge)
+     both need to hold on short landscape screens where the icon row
+     is proportionally much taller relative to the viewport - see the
+     socialZoom media queries above */
+  bottom: 5%;
   right: 0;
 }
 
 .contactIcon {
-  padding-right: 50px;
+  /* fixed 50px per icon doesn't fit 4 icons in the available width on
+     narrow screens, wrapping the row to a 2nd line and pushing it up
+     into "Find me online:" above; shrink the gap on narrow viewports
+     so the row stays on one line */
+  padding-right: clamp(8px, 3vw, 50px);
 }
 
 

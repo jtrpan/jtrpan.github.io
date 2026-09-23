@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
 export const Heading = styled.h1`
-  font-size: calc(28px + (64 - 28) * ((100vw - 220px) / (1700 - 320))) !important;
+  /* the longest line ("I'm a Tech Enthusiast from TUM.") doesn't wrap
+     (white-space: nowrap below), so on narrow screens the uncapped vw
+     formula ran wider than the viewport and got clipped; the vw cap
+     keeps it shrinking enough to fit even the longest carousel word */
+  font-size: min(calc(28px + (64 - 28) * ((100vw - 220px) / (1700 - 320))), 5.5vw) !important;
   text-align: left;
   font-family: Poppins;
   white-space: nowrap;
@@ -43,12 +47,10 @@ export const Heading = styled.h1`
   .scrollTitle {
       color: #7395AE;
       pointer-events: none;
-  }
-
-  /* react-text-loop sets an inline width on this wrapper from a stale
-     measurement of the previous word; force it back to content width */
-  .carousel-word > div {
-      width: auto !important;
+      /* react-text-loop's wrapper width lags the incoming word by a render
+         frame, so it can be a bit narrower than the word it's sizing;
+         this buffer keeps that lag from eating the space before "from" */
+      padding-right: 0.4em;
   }
 
   .helloTitle {

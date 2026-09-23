@@ -30,7 +30,10 @@ class Contact extends Component {
         window.addEventListener('resize', this.updateDimensions);
         if(this.state.open){
             window.scrollTo(0, 0);
-            document.body.style.overflow = 'auto';
+            // everything on this page is sized/positioned to fit in one
+            // viewport - block scrolling outright rather than just hoping
+            // nothing overflows
+            document.body.style.overflow = 'hidden';
         }
     }
 
@@ -66,9 +69,7 @@ class Contact extends Component {
                                 </a>
                             </Fade>
                         </div>
-                        <div style={{
-                            zoom: 1.5,
-                        }}>
+                        <div className="socialZoom">
                             <div className="contactLine">
                                 <Fade bottom cascade duration={1000} delay={3600}>
                                     <div>
