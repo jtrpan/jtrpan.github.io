@@ -44,7 +44,7 @@ const ParticlesComponent = (props) => {
                     // clamped: some devices/zoom states report wildly
                     // wrong window.innerWidth/innerHeight, and this must
                     // never be able to explode past a sane count.
-                    value: Math.max(15, Math.min(150, Math.round((window.innerWidth * window.innerHeight) / 15500))),
+                    value: Math.max(15, Math.min(600, Math.round((window.innerWidth * window.innerHeight) / 15500))),
                 },
                 links: {
                     enable: true, // enabling this will make particles linked together

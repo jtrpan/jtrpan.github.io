@@ -12,9 +12,16 @@ export const Heading = styled.h1`
   .headerRow {
     display: flex;
     flex-flow: row wrap;
-    column-gap: 3em;
+    /* em here resolves against .headerRow's own (inherited h1 default,
+       ~32px) font-size, not the much smaller text inside it - 3em was
+       actually 96px, wide enough to force an unwanted wrap at phone
+       widths. vw sidesteps that font-size mismatch entirely. */
+    column-gap: 2vw;
     row-gap: 0.3em;
-    padding: 0 22%;
+    /* left-only, matching the original layout's left:22%/right:0 - a
+       right-side 22% too (padding: 0 22%) nearly halves the usable
+       width and wraps text that used to fit fine */
+    padding-left: 22%;
   }
 
   .questionLine,
@@ -27,7 +34,7 @@ export const Heading = styled.h1`
   }
 
   .talkRow {
-    padding: 0 22%;
+    padding-left: 22%;
   }
 
   .contact-link {
@@ -75,11 +82,15 @@ export const Heading = styled.h1`
   }
 
   .socialRow {
-    padding: 0 22%;
+    padding-left: 22%;
   }
 
   .contactLine {
-    font-size: calc(10px + (64 - 44) * ((100vw - 320px) / (1700 - 320))) !important;
+    /* this used to sit inside .socialZoom (zoom: 1.5) along with the
+       icons - now that zoom is gone (replaced by font-size on
+       .buttonGroup below), this lost that 1.5x boost and rendered
+       noticeably smaller than before; the *1.5 restores its old size */
+    font-size: calc((10px + (64 - 44) * ((100vw - 320px) / (1700 - 320))) * 1.5) !important;
     text-align: left;
     font-family: Montserrat;
     color: #c0c3c4;

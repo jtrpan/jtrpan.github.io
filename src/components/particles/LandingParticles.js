@@ -46,7 +46,7 @@ const ParticlesComponent = (props) => {
                     // window.innerWidth/innerHeight, and this formula
                     // must never be able to explode past a sane count
                     // no matter what it's fed.
-                    value: Math.max(15, Math.min(150, Math.round((window.innerWidth * window.innerHeight) / 15500))),
+                    value: Math.max(15, Math.min(600, Math.round((window.innerWidth * window.innerHeight) / 15500))),
                 },
                 links: {
                     enable: true, // enabling this will make particles linked together
