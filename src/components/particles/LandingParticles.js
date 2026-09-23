@@ -41,8 +41,12 @@ const ParticlesComponent = (props) => {
                     // connecting links) into a phone-sized canvas as a
                     // desktop one, making mobile look far more crowded;
                     // scale by screen area instead, same ratio the old
-                    // (removed) responsive version used
-                    value: Math.round((window.innerWidth * window.innerHeight) / 15500),
+                    // (removed) responsive version used. Hard-clamped:
+                    // some devices/zoom states report wildly wrong
+                    // window.innerWidth/innerHeight, and this formula
+                    // must never be able to explode past a sane count
+                    // no matter what it's fed.
+                    value: Math.max(15, Math.min(150, Math.round((window.innerWidth * window.innerHeight) / 15500))),
                 },
                 links: {
                     enable: true, // enabling this will make particles linked together
