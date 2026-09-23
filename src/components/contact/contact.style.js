@@ -11,22 +11,17 @@ export const Heading = styled.h1`
 
   .headerRow {
     display: flex;
-    flex-flow: row wrap;
-    /* em here resolves against .headerRow's own (inherited h1 default,
-       ~32px) font-size, not the much smaller text inside it - 3em was
-       actually 96px, wide enough to force an unwanted wrap at phone
-       widths. vw sidesteps that font-size mismatch entirely. */
-    column-gap: 2vw;
-    row-gap: 0.3em;
-    /* left-only, matching the original layout's left:22%/right:0 - a
-       right-side 22% too (padding: 0 22%) nearly halves the usable
-       width and wraps text that used to fit fine */
+    flex-direction: column;
+    row-gap: 0.25em;
     padding-left: 22%;
   }
 
   .questionLine,
   .chatLine {
-    font-size: calc(10px + (64 - 28) * ((100vw - 320px) / (1700 - 320))) !important;
+    /* sized off viewport HEIGHT (clamped) rather than width, so it
+       scales with however much vertical room is actually available
+       instead of risking pushing the rows below it off screen */
+    font-size: clamp(18px, 3.4vh, 30px) !important;
     text-align: left;
     font-family: Lato;
     color: #c0c3c4;
