@@ -1,15 +1,31 @@
 import styled from 'styled-components';
 
 export const Heading = styled.h1`
-  /* the longest line ("I'm a Tech Enthusiast from TUM.") doesn't wrap
-     (white-space: nowrap below), so on narrow screens the uncapped vw
-     formula ran wider than the viewport and got clipped; the vw cap
-     keeps it shrinking enough to fit even the longest carousel word */
-  font-size: min(calc(28px + (64 - 28) * ((100vw - 220px) / (1700 - 320))), 5.5vw) !important;
+  font-size: calc(28px + (64 - 28) * ((100vw - 220px) / (1700 - 320))) !important;
   text-align: left;
   font-family: Poppins;
   white-space: nowrap;
   overflow: hidden;
+
+  /* the longest line ("I'm a Tech Enthusiast from TUM.") doesn't fit
+     on one line at this font-size on a phone-width screen. Capping
+     the font-size (previous approach) made ALL mobile text smaller
+     than it needed to be just to accommodate that one worst case.
+     Letting it wrap instead keeps normal-sized text everywhere and
+     only wraps the rare long word onto a 2nd line. Desktop never
+     needed either fix, so it's untouched. */
+  @media (max-width: 768px) {
+    white-space: normal;
+  }
+
+  /* short landscape phones: wrapping now makes this block tall enough
+     that .landingBlock's fixed top:53%/translateY(-80%) math (which
+     shifts up by 80% of the block's OWN height) pushes "Hello World."
+     above the top of the screen entirely. Capping by vh keeps the
+     block short enough for that positioning to stay on-screen. */
+  @media (max-width: 768px) and (max-height: 500px) {
+    font-size: min(calc(28px + (64 - 28) * ((100vw - 220px) / (1700 - 320))), 8vh) !important;
+  }
 
   .city-link {
     text-decoration: none;
