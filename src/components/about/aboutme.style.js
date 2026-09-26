@@ -39,6 +39,14 @@ export const Heading = styled.h1`
        bottom of the scrollable area */
     padding: 0 6% 5vh;
     box-sizing: border-box;
+
+    /* .introLine ("Hi. It's nice to meet you.") wraps to 2 lines below
+       ~380px wide, growing taller than the top:22% budget accounts
+       for and overlapping this text's first line. Push it down only
+       on the narrow screens where that actually happens. */
+    @media (max-width: 480px) {
+      top: 27%;
+    }
     font-size: calc(15px + (64 - 55) * ((130vw - 620px) / (1700 - 320))) !important;
     font-family: Lato;
     font-weight: lighter;
