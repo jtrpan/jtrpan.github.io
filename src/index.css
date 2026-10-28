@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* tsParticles only makes its canvas fixed/full-screen once it initializes;
+   until then it sits in normal flow and pushes page content ~800px down,
+   which makes react-reveal think on-screen content is below the fold */
+#tsparticles {
+  position: fixed;
+  inset: 0;
+}

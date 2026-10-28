@@ -60,7 +60,7 @@ class Landing extends React.Component {
                               an Athlete
                             </span>
                             <span className="scrollTitle">
-                              a Tech Enthusiast
+                              a Tinkerer
                             </span>
                             <span className="scrollTitle">
                               a Leader
@@ -90,7 +90,7 @@ class Landing extends React.Component {
                               an Adventurer
                             </span>
                             <span className="scrollTitle">
-                              a Motorsport Fan
+                              a Researcher
                             </span>
                             <span className="scrollTitle">
                               a Gearhead

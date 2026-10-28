@@ -2,89 +2,44 @@ import styled from 'styled-components';
 
 
 export const Heading = styled.h1`
+  /* normal flow (was absolutely positioned rows at fixed offsets, which
+     overflowed off-screen whenever 3 x 420px cards didn't fit the width) -
+     relative + z-index keeps it above the fixed particle canvas */
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: clamp(56px, 6vh, 72px) 0 8vh;
 
-  .links {
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-
-    a {
-      text-decoration: none;
-      margin: 1rem;
-    }
+  .introLine {
+    margin-bottom: 0.6em;
+    font-size: clamp(36px, 5vw, 72px);
+    font-weight: normal;
+    text-align: center;
+    pointer-events: none;
+    user-select: none;
+    font-family: Montserrat;
+    color: #c0c3c4;
   }
 
   .cardGroup {
-    left: 0%;
-    top: 18%;
     display: flex;
-    flex-flow: row;
-    justify-content: center;
+    flex-flow: column;
     align-items: center;
-    width: 100%;
-    box-sizing: border-box;
-    font-size: calc(8px + (64 - 52) * ((100vw - 320px) / (1700 - 320))) !important;
+    gap: 40px;
+    /* card titles inherit this; descriptions are fixed at 0.875rem by
+       the library, so keep titles a step above that */
+    font-size: clamp(17px, 1.3vw, 20px);
+    font-weight: normal;
     font-family: Montserrat;
-
-    @media screen and (max-width: 768px) {
-      flex-flow: column;
-      margin-top: 12vh;
-    }
   }
 
-  .cardRow1 {
-    position: absolute;
-    left: 0%;
-    top: 16%;
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    box-sizing: border-box;
-    font-family: Montserrat;
-
-    @media screen and (max-width: 768px) {
-      position: static;
-      flex-flow: column;
-    }
-  }
-
+  .cardRow1,
   .cardRow2 {
-    position: absolute;
-    left: 0%;
-    top: calc(18% + 400px);
     display: flex;
-    flex-flow: row;
+    flex-flow: row wrap;
     justify-content: center;
-    align-items: center;
-    width: 100%;
-    box-sizing: border-box;
-
-    @media screen and (max-width: 768px) {
-      position: static;
-      top: auto;
-      flex-flow: column;
-    }
-  }
-
-  .cardRow3 {
-    position: absolute;
-    left: 0%;
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    box-sizing: border-box;
-
-    @media screen and (max-width: 768px) {
-      position: static;
-      top: auto;
-      flex-flow: column;
-    }
+    gap: 40px 30px;
+    font-family: Montserrat;
   }
 
   /* TaggedContentCard renders a fixed 420px-wide card with only
@@ -93,67 +48,8 @@ export const Heading = styled.h1`
      on any viewport narrower than ~490px. Cap the actual card width
      instead of relying on the library's max-width. */
   .cardRow1 > a > div,
-  .cardRow2 > a > div,
-  .cardRow3 > a > div {
+  .cardRow2 > a > div {
     width: min(420px, 85vw) !important;
-  }
-
-  .introLine {
-    position: absolute;
-    left: 0%;
-    top: 6%;
-    right: 0%;
-    font-size: calc(30px + (64 - 28) * ((100vw - 220px) / (1700 - 320))) !important;
-    text-align: center;
-    pointer-events: none;
-    user-select: none;
-    font-family: Montserrat;
-    color: #c0c3c4;
-  }
-
-  .moreLine {
-    position: absolute;
-    left: 0%;
-    right: 0%;
-    font-size: calc(10px + (64 - 28) * ((100vw - 320px) / (1700 - 320))) !important;
-    text-align: center;
-    font-family: Montserrat;
-    transform: translate(0%, +10%);
-    color: #c0c3c4;
-  }
-
-  .specialText {
-    font-size: calc(1px + (64 - 36) * ((100vw - 320px) / (1700 - 320))) !important;
-    text-align: left;
-    font-weight: lighter;
-    text-decoration: italicize;
-  }
-
-
-  .project-link {
-    text-decoration: none;
-    display: inline-block;
-    -webkit-tap-highlight-color: transparent;
-    transition: transform 0.4s ease-in-out;
-
-    :active {
-      transition: transform 0s;
-    }
-  }
-
-  .project-link_content {
-    display: block;
-    color: #9932CC;
-  }
-
-  .project-link:hover > .project-link_content {
-    color: #6EC4E8;
-    transform: scale(1.05);
-
-    /* Block "sticky hover" effect on mobile devices */
-    @media (hover: none) {
-      color: inherit;
-    }
   }
 `;
 

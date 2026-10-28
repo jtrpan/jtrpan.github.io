@@ -9,10 +9,8 @@ import './projects.css';
 
 import img1 from '../images/image1.png'
 import img2 from '../images/img2.png'
-import img3 from '../images/img3.png'
-import img4 from '../images/img4.png'
 import img6 from '../images/img6.png'
-import img7 from '../images/img7.png'
+import wineSensor from '../images/wine-sensor.svg'
 
 export class Projects extends Component {
     constructor(props) {
@@ -58,17 +56,32 @@ export class Projects extends Component {
                                 </div>
                             </Fade>
                         </div>
-                        <div className='cardGroup'>
-                            <Fade duration={1200} delay={1500}>
+                        <Fade duration={1200} delay={1500}>
+                            <div className='cardGroup'>
                                 <div className='cardRow1'>
+                                    {/* ponytail: no public repo for the capstone, so no href - card isn't clickable */}
+                                    <TaggedContentCard
+                                        thumbnail={wineSensor}
+                                        title='Contactless Wine Sensor'
+                                        description="Bachelor's capstone: detects spoiled wine by passing current through a sealed bottle."
+                                        tags={[]}
+                                    />
+
                                     <TaggedContentCard
                                         href="https://github.com/jtrpan/GroundstationWeb"
                                         thumbnail={img1}
                                         title='Groundstation Web'
-                                        description="UBC AeroDesign's web-based flight control system. "
-                                        tags={[
-                                            ''
-                                        ]}
+                                        description="UBC AeroDesign's web-based flight control system."
+                                        tags={[]}
+                                    />
+                                </div>
+                                <div className='cardRow2'>
+                                    <TaggedContentCard
+                                        href="https://github.com/jtrpan/Reflow-Assistant"
+                                        thumbnail={img6}
+                                        title='Reflow Assistant'
+                                        description="Reflow soldering oven controller with adjustable parameters."
+                                        tags={[]}
                                     />
 
                                     <TaggedContentCard
@@ -76,55 +89,11 @@ export class Projects extends Component {
                                         thumbnail={img2}
                                         title='AESLock'
                                         description='Experimental AES-256 bit file encryption software.'
-                                        tags={[
-                                            ''
-                                        ]}
-                                    />
-
-                                    <TaggedContentCard
-                                        href="https://github.com/jtrpan/Reflow-Assistant"
-                                        thumbnail={img6}
-                                        title='Reflow Assistant'
-                                        description="Reflow soldering oven controller with parameters."
-                                        tags={[
-                                            ''
-                                        ]}
+                                        tags={[]}
                                     />
                                 </div>
-                            </Fade>
-                            <Fade duration={1000} delay={1700}>
-                                <div className='cardRow2'>
-                                    <TaggedContentCard
-                                        href="https://github.com/jtrpan/Emperor-Coin"
-                                        thumbnail={img3}
-                                        title="Emperor's Coin"
-                                        description='Interactive 12-body counterfeit balance puzzle.'
-                                        tags={[
-                                            ''
-                                        ]}
-                                    />
-
-                                    <TaggedContentCard
-                                        href="https://github.com/jtrpan/Make-A-Deal"
-                                        thumbnail={img4}
-                                        title="Let's Make a Deal!"
-                                        description='A visualization of the classic Monty Hall Problem.'
-                                        tags={[
-                                            ''
-                                        ]}
-                                    />
-                                    <TaggedContentCard
-                                        href="https://github.com/jtrpan/PokeMusic"
-                                        thumbnail={img7}
-                                        title='PokéMusic'
-                                        description='Detects Pokémon gameplay and plays music.'
-                                        tags={[
-                                            ''
-                                        ]}
-                                    />
-                                </div>
-                            </Fade>
-                        </div>
+                            </div>
+                        </Fade>
                         <br/>
                     </Styled.Heading>
                 </Styled.Wrapper>

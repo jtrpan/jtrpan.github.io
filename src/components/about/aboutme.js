@@ -3,7 +3,6 @@ import SplitText from 'react-pose-text';
 import Fade from 'react-reveal/Fade';
 import {Link} from 'react-router-dom';
 import Particles from '.././particles/AboutParticles.js';
-import {Container, Row, Col} from 'reactstrap';
 
 import * as Styled from './aboutme.style';
 import './aboutme.css';
@@ -22,30 +21,19 @@ const wordOne = {
     }
 };
 
+const ExternalLink = ({href, label, children}) => (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="project-link" aria-label={label}>
+        {children}
+    </a>
+);
+
 class About extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            open: true, windowWidth: window.innerWidth, windowHeight: window.innerHeight,
-        }
-    }
-
-    updateDimensions = () => {
-        this.setState({
-            windowWidth: window.innerWidth, windowHeight: window.innerHeight,
-        });
-    }
-
     componentDidMount() {
-        window.addEventListener('resize', this.updateDimensions);
-        if (this.state.open) {
-            window.scrollTo(0, 0);
-            document.body.style.overflow = 'auto';
-        }
+        window.scrollTo(0, 0);
+        document.body.style.overflow = 'auto';
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', this.updateDimensions);
         document.body.style.overflow = 'auto';
     }
 
@@ -53,194 +41,63 @@ class About extends Component {
         return (<Styled.StyledView>
             <Particles/>
             <Styled.Wrapper>
-                <Styled.Heading>
-                    <div className="introLine">
-                        <SplitText initialPose="exit" pose="enter" charPoses={wordOne}>
-                            Hi.
-                        </SplitText><span> </span>
-                        <SplitText initialPose="exit" pose="enter" charPoses={introLine}>
-                            It's nice to meet you.
-                        </SplitText>
+                <h1 className="introLine">
+                    <SplitText initialPose="exit" pose="enter" charPoses={wordOne}>
+                        Hi.
+                    </SplitText>{' '}
+                    <SplitText initialPose="exit" pose="enter" charPoses={introLine}>
+                        It's nice to meet you.
+                    </SplitText>
+                </h1>
+                <Fade duration={1600} delay={2000}>
+                    <div className="infoText">
+                        <p className="lead">
+                            I'm James. I'm doing my Master's in Computational Science and Engineering
+                            at TUM in Munich. <Emoji symbol="🎓" label="graduation cap"/>
+                        </p>
+                        <p>
+                            I like to <Link to="/projects" className="project-link">build stuff</Link>.
+                            Right now I'm mostly into CFD and high-performance computing. <Emoji symbol="📚" label="books"/>
+                        </p>
+                        <p>
+                            I finished my undergrad at UBC in 2023. Before Munich, I was a software engineer
+                            at Hash Machinery Systems <Emoji symbol="⚙️" label="gear"/>, and before that I
+                            was at Antario Financial, a fintech start-up doing closed-loop mobile
+                            payments. <Emoji symbol="💳" label="credit card"/>
+                        </p>
+                        <p>
+                            Before that, I was at the National Research Council in the AEP division, working
+                            on research for the next generation of wireless networks (6G,
+                            basically). <Emoji symbol="🔬" label="microscope"/> At UBC I was also an avionics
+                            engineer on <ExternalLink href="https://www.ubcaerodesign.com/" label="UBC AeroDesign website">UBC
+                            AeroDesign</ExternalLink>, where we built planes that actually had
+                            to <ExternalLink href="https://www.sae.org/attend/student-events/sae-aero-design-west/about"
+                            label="SAE Aero Design competition">fly</ExternalLink>. <Emoji symbol="🛩️" label="airplane"/>
+                        </p>
+                        <p>
+                            My <ExternalLink href={my_pdf} label="My resume">resume</ExternalLink> has the
+                            rest. <Emoji symbol="📑" label="resume"/>
+                        </p>
+                        <p>
+                            Outside of school, I'm usually in the workshop <Emoji symbol="🛠️" label="tools"/>,
+                            at the archery range <Emoji symbol="🏹" label="bow and arrow"/>, or at the
+                            pool. <Emoji symbol="🏊" label="swimming"/> In winter I go snowboarding whenever
+                            I can. <Emoji symbol="🏂" label="snowboarder"/>
+                        </p>
+                        <p>
+                            I watch a lot of F1 <Emoji symbol="🏎️" label="racing car"/>, I'm into cars and
+                            planes <Emoji symbol="✈️" label="airplane"/>, and I'm always messing around with
+                            whatever new tech just came out. <Emoji symbol="💻" label="laptop"/>
+                        </p>
+                        <p>
+                            If you want to get in touch, use the <Link to="/contact" className="project-link">contact
+                            page</Link>. <Emoji symbol="💬" label="chat bubble"/>
+                        </p>
                     </div>
-                    <Container>
-                        <Row>
-                            <Col>
-                                <div className="infoText" style={{
-                                    maxWidth: "100%", display: "block", textAlign: "center",
-                                }}>
-                                    <Fade duration={1600} delay={2000}>
-                                        <div>
-                                                <span className="specialText">
-                                                    My name is James. I'm a Master's student based in Munich, Germany. <Emoji
-                                                    symbol="🎓" label="graduation cap"/>
-                                                </span>
-                                            <br/>
-                                            <span className="specialText">
-                                                    I like to build <span> </span>
-                                                <span>
-                                                <Link
-                                                    to="/projects"
-                                                    target="_blank"
-                                                    onClick={this.props.closeCallback}
-                                                    className="project-link">
-                                                    <span className="project-link_content">
-                                                        stuff
-                                                    </span>
-                                                </Link>
-                                                .
-                                                I graduated from UBC in 2023, and I'm currently pursuing a Master's degree in Computational Science and Engineering (CSE) at the Technical University of Munich, where I'm especially interested in computational fluid dynamics (CFD) and high-performance computing (HPC).
-                                                <span> </span>
-                                                <Emoji symbol="📚" label="books"/>
-                                                <br/><br/>
-                                                Before that, I worked as a Software Engineer at Hash Machinery Systems,
-                                                <span> </span>
-                                                <Emoji symbol="⚙️" label="gear"/> and prior to that, as a Software Developer at Antario Financial,
-                                                a fintech start-up building smart, closed-loop mobile payments.
-                                                <br/><br/>
-                                                Earlier still, I worked as a Software Engineer within the AEP division at the National Research Council.
-                                                <span> </span>
-                                                <Emoji symbol="🔬" label="microscope"/>
-                                                <br/>
-                                                There, my work consisted of researching the next generation of wireless data networks - "6G", so to speak.
-                                                <br/><br/>
-                                                I've also spent some time as an Avionics Engineer on <span></span>
-                                                <span>
-                                                    <a
-                                                        href="https://www.ubcaerodesign.com/"
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="project-link"
-                                                        aria-label="UBC Website"
-                                                    >
-                                                        <span
-                                                            tabIndex="-1"
-                                                            className="project-link_content"
-                                                        >
-                                                        UBC AeroDesign
-                                                        </span>
-                                                    </a>
-                                                </span>
-                                                <span> </span>
-                                                <span>
-                                                    to help make things that
-                                                </span>
-                                                <span> </span>
-                                                <span>
-                                                    <a
-                                                        href="https://www.sae.org/attend/student-events/sae-aero-design-west/about"
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="project-link"
-                                                        aria-label="UBC Website"
-                                                    >
-                                                        <span
-                                                            tabIndex="-1"
-                                                            className="project-link_content"
-                                                        >
-                                                            fly
-                                                        </span>
-                                                    </a>
-                                                </span>. <Emoji symbol="🛩️" label="aeroplane"/></span>
-                                                <br/>
-                                                <span className="specialText">
-                                                    To learn more about my professional history, check out my <span> </span>
-                                                <span>
-                                                    <a
-                                                        href={my_pdf}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="project-link"
-                                                        aria-label="My Resume"
-                                                    >
-                                                        <span
-                                                            tabIndex="-1"
-                                                            className="project-link_content"
-                                                        >
-                                                            resume
-                                                        </span>
-                                                    </a>
-                                                . <Emoji symbol="📑" label="resume"/>
-                                                </span>
-                                                </span>
-                                                    <br/> <span> </span>
-                                                    <br/>
-                                                    <span className="specialText">
-                                                When I'm not in class, you can find me in the workshop <Emoji
-                                                        symbol="🛠️"
-                                                        label="tools"/><span>.  </span>
-                                                Or at the archery range <Emoji symbol="🏹"
-                                                                               label="bow and arrow"/><span>.  </span>
-                                                Or in the pool <Emoji symbol="🏊" label="swimming"/><span>.  </span>
-                                                </span>
-                                                    <br/>
-                                                    <span className="specialText">
-                                                If it's winter, I might be hitting the slopes <Emoji symbol="🏂"
-                                                                                                     label="snowboard"/><span>.  </span>
-                                                I could be anywhere; who knows! <Emoji symbol="🤷🏻‍♂️" label="shrug"/>
-                                                </span>
-                                                    <br/>
-                                                    <span className="specialText">
-                                                Outside of all that, I'm a huge Formula 1, car, and airplane enthusiast <Emoji symbol="🏎️" label="racing car"/><Emoji symbol="✈️" label="airplane"/><span>, </span>
-                                                and I'm always tinkering with the latest tech <Emoji symbol="💻" label="laptop"/>
-                                                </span>
-                                                    <br/>
-                                                    <span className="specialText">
-                                                    <br/>
-                                                To save you the trouble, <span> </span>
-                                                <span>
-                                                <a
-                                                    href="/contact"
-                                                    rel="noopener noreferrer"
-                                                    className="project-link"
-                                                    aria-label="Contact"
-                                                >
-                                                <span
-                                                    tabIndex="-1"
-                                                    className="project-link_content"
-                                                >
-                                                here
-                                                </span>
-                                                </a>
-                                                </span> <span> </span>
-                                                is the best way to reach me. <Emoji symbol="💬" label="chat bubble"/> I'll get back to you as soon as possible.
-                                                </span>
-                                                </span>
-                                        </div>
-                                    </Fade>
-                                </div>
-                            </Col>
-                        </Row>
-                    </Container>
-                </Styled.Heading>
+                </Fade>
             </Styled.Wrapper>
         </Styled.StyledView>)
     }
 }
 
 export default About;
-
-/*
-highschool
-<span className="specialText">
-                                                    I've also spent some time as a Mechatronics Engineer on Ashbury College Robotics, where I attended <span> </span>
-                                                <span>
-                                                    <a
-                                                        href="https://www.ashbury.ca/"
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="project-link"
-                                                        aria-label="UBC Website"
-                                                    >
-                                                        <span
-                                                            tabIndex="-1"
-                                                            className="project-link_content"
-                                                        >
-                                                        high school
-                                                        </span>
-                                                    </a>
-                                                    .
-                                                    </span>
-                                                </span>
-                                                    <br/>
-
- */

@@ -1,160 +1,65 @@
 import styled from 'styled-components';
 
-export const Heading = styled.h1`
-  background: #5D5C61;
-  background-color: #5D5C61;
+export const Wrapper = styled.section`
+  /* normal document flow (was absolutely positioned at top: 5.5% / 22%,
+     which overlapped whenever the heading wrapped to a 2nd line) -
+     relative + z-index keeps it above the fixed particle canvas */
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: clamp(64px, 10vh, 120px) 20px 8vh;
+  color: #c0c3c4;
+  pointer-events: none;
 
   .introLine {
-    position: absolute;
-    left: 0%;
-    top: 5.5%;
-    right: 0;
-    font-size: calc(50px + (64 - 28) * ((130vw - 620px) / (1700 - 320))) !important;
-    text-align: center;
+    /* break out of the 46rem text column so it fits on one line on desktop */
+    margin: 0 calc(50% - 50vw) 0.6em;
+    padding: 0 16px;
+    text-wrap: balance;
+    font-size: clamp(34px, 5vw, 72px);
     font-family: Montserrat;
-    color: #c0c3c4;
-    background: rgba(0, 0, 0, 0);
-    pointer-events: none;
-  }
-
-  .landingBlock {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -80%);
-    background: #5D5C61;
-    color: #c0c3c4;
-    background: rgba(0, 0, 0, 0);
-    pointer-events: none;
+    font-weight: normal;
+    line-height: 1.2;
+    text-align: center;
   }
 
   .infoText {
-    position: absolute;
-    left: 0%;
-    top: 22%;
-    right: 0;
-    /* .infoText is the only thing giving the page scrollable height
-       (it's absolutely positioned, so nothing else does), and with no
-       bottom padding the last line lands exactly flush with the
-       bottom of the scrollable area */
-    padding: 0 6% 5vh;
-    box-sizing: border-box;
-
-    /* .introLine ("Hi. It's nice to meet you.") wraps to 2 lines below
-       ~380px wide, growing taller than the top:22% budget accounts
-       for and overlapping this text's first line. Push it down only
-       on the narrow screens where that actually happens. */
-    @media (max-width: 480px) {
-      top: 27%;
-    }
-    font-size: calc(15px + (64 - 55) * ((130vw - 620px) / (1700 - 320))) !important;
+    font-size: clamp(16px, 1rem + 0.35vw, 20px);
     font-family: Lato;
-    font-weight: lighter;
+    font-weight: 300;
     line-height: 1.7;
-    color: #c0c3c4;
-    background: rgba(0, 0, 0, 0);
-    pointer-events: none;
-  }
-
-  .specialText {
     text-align: left;
-    font-weight: lighter;
-    text-decoration: italicize;
-    background: rgba(0, 0, 0, 0);
   }
 
-  .hintText {
-    font-size: calc(7px + (64 - 52) * ((100vw - 320px) / (1700 - 320))) !important;
-    text-align: left;
-    font-weight: lighter;
-    font-style: italic;
-    background: rgba(0, 0, 0, 0);
+  .lead {
+    font-size: 1.2em;
   }
 
+  p {
+    margin: 0 0 1em;
+  }
 
   .project-link {
-    text-decoration: none;
-    display: inline-block;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    transition: transform 0.4s ease-in-out;
-    background: rgba(0, 0, 0, 0);
-    pointer-events: auto;
-
-    :active {
-      transition: transform 0s;
-      background: rgba(0, 0, 0, 0);
-    }
-  }
-
-  .project-link_content {
-    display: block;
     color: #5998bf;
-  }
-
-  .project-link:hover > .project-link_content {
-    color: #B1A296;
-    transform: scale(1.03);
-    transition: transform 0.4s ease-in-out;
-    background: #5D5C61;
-    background-color: #5D5C61;
-
-    /* Block "sticky hover" effect on mobile devices */
-    @media (hover: none) {
-      color: inherit;
-      background: #5D5C61;
-      transition: transform 0.8s ease-in-out;
-      background-color: #5D5C61;
-    }
-    background: #5D5C61;
-    background-color: #5D5C61;
-  }
-
-  .project-link2 {
     text-decoration: none;
-    display: inline-block;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    transition: transform 0.4s ease-in-out;
-    background: rgba(0, 0, 0, 0);
     pointer-events: auto;
-
-    :active {
-      transition: transform 0s;
-      background: rgba(0, 0, 0, 0);
-    }
+    -webkit-tap-highlight-color: transparent;
+    transition: color 0.3s ease-in-out;
   }
 
-  .project-link_content2 {
-    display: block;
-    color: #c0c3c4;
-  }
-
-  .project-link2:hover > .project-link_content2 {
-    color: #8a0000;
-    transform: scale(1.03);
-    background: #5D5C61;
-    background-color: #5D5C61;
+  .project-link:hover {
+    color: #B1A296;
 
     /* Block "sticky hover" effect on mobile devices */
     @media (hover: none) {
-      color: inherit;
-      background: #5D5C61;
-      background-color: #5D5C61;
+      color: #5998bf;
     }
-    background: #5D5C61;
-    background-color: #5D5C61;
   }
-
-`;
-
-export const Wrapper = styled.section`
-  padding: 1em;
-  background: #5D5C61;
-  background-color: #5D5C61;
 `;
 
 export const StyledView = styled.div`
+  min-height: 100vh;
   background: #5D5C61;
-  background-color: #5D5C61;
 `;
