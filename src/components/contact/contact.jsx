@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedinIn, faGithubAlt, faFacebookF, faXTwitter } from '@fortawesome/free-brands-svg-icons';
-import { Reveal } from '../motion';
+import { Bounce, Fade } from '../motion';
 
 import * as Styled from './contact.style';
 import Emoji from '../emoji';
 import Particles from '../particles/ContactParticles';
 
 const socials = [
-    { href: 'https://www.linkedin.com/in/jtrpan/', icon: faLinkedinIn, label: 'LinkedIn', className: 'linkedin' },
-    { href: 'https://github.com/jtrpan', icon: faGithubAlt, label: 'GitHub', className: 'github' },
-    { href: 'https://www.facebook.com/james.trissin', icon: faFacebookF, label: 'Facebook', className: 'facebook' },
-    { href: 'https://x.com/jtrpan', icon: faXTwitter, label: 'X (Twitter)', className: 'x' },
+    { href: 'https://www.linkedin.com/in/jtrpan/', icon: faLinkedinIn, label: 'LinkedIn', className: 'contactButton1' },
+    { href: 'https://github.com/jtrpan', icon: faGithubAlt, label: 'GitHub', className: 'contactButton2' },
+    { href: 'https://www.facebook.com/james.trissin', icon: faFacebookF, label: 'Facebook', className: 'contactButton3' },
+    { href: 'https://x.com/jtrpan', icon: faXTwitter, label: 'X (Twitter)', className: 'contactButton4' },
 ];
 
 const Contact = () => {
@@ -33,35 +33,37 @@ const Contact = () => {
             <Particles/>
             <Styled.Heading>
                 <div className="headerRow">
-                    <Reveal effect="bounce-left" duration={1000}>
+                    <Bounce left duration={1000}>
                         <div className="questionLine">Looking to start a project?</div>
-                    </Reveal>
-                    <Reveal effect="bounce-right" duration={1000} delay={700}>
+                    </Bounce>
+                    <Bounce right duration={1000} delay={1200}>
                         <div className="chatLine">Or just want to chat?</div>
-                    </Reveal>
+                    </Bounce>
                 </div>
 
                 <div className="talkRow">
-                    <Reveal duration={1000} delay={1500}>
+                    <Fade duration={1000} delay={2400}>
                         <a href="mailto:jtrpan@gmail.com" className="contact-link" aria-label="Email me">
                             <span className="contact-link_content">
-                                Let's talk. <Emoji symbol="🤙" label="call me"/>
+                                Let's talk.  <Emoji symbol="🤙" label="call me"/>
                             </span>
                         </a>
-                    </Reveal>
+                    </Fade>
                 </div>
 
                 <div className="socialRow">
-                    <Reveal effect="fade-up" duration={1000} delay={2200}>
+                    <Fade bottom cascade duration={1000} delay={3600}>
                         <div className="contactLine">Find me online:</div>
+                    </Fade>
+                    <Fade bottom cascade duration={2000} delay={3600}>
                         <div className="buttonGroup">
                             {socials.map(({ href, icon, label, className }) => (
-                                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} title={label}>
-                                    <FontAwesomeIcon icon={icon} className={className}/>
+                                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
+                                    <FontAwesomeIcon icon={icon} className={className} color={'#c0c3c4'} transform="down-6"/>
                                 </a>
                             ))}
                         </div>
-                    </Reveal>
+                    </Fade>
                 </div>
             </Styled.Heading>
         </Styled.Wrapper>

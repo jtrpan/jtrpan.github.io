@@ -26,48 +26,53 @@ code {
   outline-offset: 3px;
 }
 
-/* entrance animations used by components/motion.jsx */
-.reveal {
-  animation-fill-mode: both;
-  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+/* keyframes for components/motion.jsx, copied from the libraries they
+   replace (react-reveal, react-pose-text, react-text-loop) */
+@keyframes reveal-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes reveal-fade-top {
+  from { opacity: 0; transform: translate3d(0, -100%, 0); }
+  to { opacity: 1; transform: none; }
 }
-.reveal-fade { animation-name: fade; }
-.reveal-fade-down { animation-name: fade-down; }
-.reveal-fade-up { animation-name: fade-up; }
-.reveal-bounce-left { animation-name: bounce-left; animation-timing-function: ease-out; }
-.reveal-bounce-right { animation-name: bounce-right; animation-timing-function: ease-out; }
-.reveal-rise {
+@keyframes reveal-fade-bottom {
+  from { opacity: 0; transform: translate3d(0, 100%, 0); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes reveal-bounce-left {
+  from, 60%, 75%, 90%, to { animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  from { opacity: 0; transform: translate3d(-3000px, 0, 0); }
+  60% { opacity: 1; transform: translate3d(25px, 0, 0); }
+  75% { transform: translate3d(-10px, 0, 0); }
+  90% { transform: translate3d(5px, 0, 0); }
+  to { transform: none; }
+}
+@keyframes reveal-bounce-right {
+  from, 60%, 75%, 90%, to { animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  from { opacity: 0; transform: translate3d(3000px, 0, 0); }
+  60% { opacity: 1; transform: translate3d(-25px, 0, 0); }
+  75% { transform: translate3d(10px, 0, 0); }
+  90% { transform: translate3d(-5px, 0, 0); }
+  to { transform: none; }
+}
+@keyframes pose-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pose-rise { from { transform: translateY(20px); } to { transform: none; } }
+@keyframes loop-in {
+  from { opacity: 0; transform: translateY(100%); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes loop-out {
+  from { opacity: 1; transform: none; }
+  to { opacity: 0; transform: translateY(-100%); }
+}
+
+.text-loop-item {
   display: inline-block;
-  animation-name: fade-up;
-  animation-duration: 600ms;
+  white-space: nowrap;
 }
 
-.text-loop {
-  display: inline-block;
-  animation: text-loop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+/* hide scrollbars site-wide (as the original projects.css did) */
+* {
+  -ms-overflow-style: none;
 }
-
-@keyframes fade { from { opacity: 0; } }
-@keyframes fade-down { from { opacity: 0; transform: translateY(-30px); } }
-@keyframes fade-up { from { opacity: 0; transform: translateY(20px); } }
-@keyframes text-loop-in { from { opacity: 0; transform: translateY(0.5em); } }
-@keyframes bounce-left {
-  0% { opacity: 0; transform: translateX(-60vw); }
-  60% { opacity: 1; transform: translateX(25px); }
-  75% { transform: translateX(-10px); }
-  90% { transform: translateX(5px); }
-  100% { transform: none; }
-}
-@keyframes bounce-right {
-  0% { opacity: 0; transform: translateX(60vw); }
-  60% { opacity: 1; transform: translateX(-25px); }
-  75% { transform: translateX(10px); }
-  90% { transform: translateX(-5px); }
-  100% { transform: none; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal, .text-loop {
-    animation-duration: 1ms !important;
-  }
+::-webkit-scrollbar {
+  display: none;
 }

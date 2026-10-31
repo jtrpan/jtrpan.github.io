@@ -96,6 +96,10 @@ export const Heading = styled.h1`
   }
 
   .contactLine {
+    /* this used to sit inside .socialZoom (zoom: 1.5) along with the
+       icons - now that zoom is gone (replaced by font-size on
+       .buttonGroup below), this lost that 1.5x boost and rendered
+       noticeably smaller than before; the *1.5 restores its old size */
     font-size: calc((10px + (64 - 44) * ((100vw - 320px) / (1700 - 320))) * 1.5) !important;
     text-align: left;
     font-family: Montserrat;
@@ -110,25 +114,35 @@ export const Heading = styled.h1`
     align-items: center;
     column-gap: clamp(12px, 3vw, 40px);
     row-gap: 0.4em;
-    /* FontAwesome icons size themselves in em, so this sizes them */
+    /* replaces the old zoom: 1.5 hack: zoom has spotty cross-browser
+       support and, worse, this app has a separate global body zoom:
+       95% style (leaked in from projects.css) that breaks position:
+       fixed under it - zoom in general is landmine-prone here.
+       FontAwesome icons size themselves in em by default, so scaling
+       font-size scales them the standard, portable way. */
     font-size: clamp(28px, 6vw, 46px);
   }
 
-  .buttonGroup a {
-    display: inline-flex;
-    color: #c0c3c4;
-    transition: transform 0.4s ease-in-out, color 0.4s ease-in-out;
-  }
-
-  .buttonGroup a:hover,
-  .buttonGroup a:focus-visible {
+  .contactButton1:hover {
     transform: scale(1.3);
+    transition: transform 0.4s ease-in-out;
+    color: #2867B2;
   }
-
-  .buttonGroup a:hover .linkedin { color: #2867B2; }
-  .buttonGroup a:hover .github { color: #24292e; }
-  .buttonGroup a:hover .facebook { color: #3b5998; }
-  .buttonGroup a:hover .x { color: #000; }
+  .contactButton2:hover {
+    transform: scale(1.3);
+    transition: transform 0.4s ease-in-out;
+    color: #24292e;
+  }
+  .contactButton3:hover {
+    transform: scale(1.3);
+    transition: transform 0.4s ease-in-out;
+    color: #3b5998;
+  }
+  .contactButton4:hover {
+    transform: scale(1.3);
+    transition: transform 0.4s ease-in-out;
+    color: #000;
+  }
 `;
 
 export const Wrapper = styled.section`

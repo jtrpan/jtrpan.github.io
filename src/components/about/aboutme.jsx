@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Particles from '../particles/AboutParticles';
-import { Reveal, SplitWords } from '../motion';
+import { Fade, SplitText } from '../motion';
 
 import * as Styled from './aboutme.style';
 import resume from '../pdfs/resume.pdf';
@@ -21,10 +21,14 @@ const About = () => {
             <Particles/>
             <Styled.Wrapper>
                 <h1 className="introLine">
-                    <SplitWords text="Hi." delay={i => i * 200 + 300}/>
-                    <SplitWords text="It's nice to meet you." delay={i => i * 140 + 700}/>
+                    <SplitText delay={wordIndex => wordIndex * 200 + 400}>
+                        Hi.
+                    </SplitText>{' '}
+                    <SplitText delay={wordIndex => wordIndex * 140 + 1000}>
+                        It's nice to meet you.
+                    </SplitText>
                 </h1>
-                <Reveal duration={1400} delay={1400}>
+                <Fade duration={1600} delay={2000}>
                     <div className="infoText">
                         <p className="lead">
                             I'm James, a Master's student in Computational Science and Engineering
@@ -72,7 +76,7 @@ const About = () => {
                             page</Link>. <Emoji symbol="💬" label="chat bubble"/>
                         </p>
                     </div>
-                </Reveal>
+                </Fade>
             </Styled.Wrapper>
         </Styled.StyledView>
     );

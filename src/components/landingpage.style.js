@@ -54,9 +54,20 @@ export const Heading = styled.h1`
     }
   }
 
+  /* Remove default focus from target elements */  
+  .city-link:focus,
+  .city-link_content:focus {
+    outline: none;
+  }
+
   .scrollTitle {
       color: #7395AE;
       pointer-events: none;
+      /* react-text-loop's wrapper width lags the incoming word by a render
+         frame, so it can be a bit narrower than the word it's sizing;
+         this buffer keeps that lag from eating the space before "at"
+         (kept small - there's already a real space after it) */
+      padding-right: 0.15em;
   }
 
   .helloTitle {

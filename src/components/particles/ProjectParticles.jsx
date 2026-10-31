@@ -1,5 +1,6 @@
 import React from 'react';
 import ParticlesCanvas from './ParticlesCanvas';
+import { clickRepulse } from './density';
 
 const options = {
     fpsLimit: 120,
@@ -12,7 +13,7 @@ const options = {
         },
         modes: {
             grab: { distance: 400, links: { opacity: 0 } },
-            repulse: { distance: 200, duration: 10 },
+            repulse: { ...clickRepulse(200), duration: 10 },
         },
     },
     particles: {

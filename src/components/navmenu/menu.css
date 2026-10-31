@@ -1,19 +1,26 @@
+/* same size and spot as the original react-hamburger-menu icon */
 .menu-toggle {
   position: fixed;
-  top: 18px;
-  left: 16px;
+  top: calc(2% - 1px);
+  left: 1%;
   z-index: 1002;
-  width: 44px;
-  height: 44px;
-  padding: 8px 4px;
+  width: 36px;
+  height: 30px;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background: none;
   border: 0;
-  border-radius: 6px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+}
+
+/* bigger invisible tap target without moving the icon */
+.menu-toggle::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
 }
 
 .menu-toggle span {
@@ -25,9 +32,9 @@
 }
 
 /* the three bars fold into an X */
-.menu-toggle.is-open span:nth-child(1) { transform: translateY(12px) rotate(45deg); }
+.menu-toggle.is-open span:nth-child(1) { transform: translateY(14px) rotate(45deg); }
 .menu-toggle.is-open span:nth-child(2) { opacity: 0; }
-.menu-toggle.is-open span:nth-child(3) { transform: translateY(-12px) rotate(-45deg); }
+.menu-toggle.is-open span:nth-child(3) { transform: translateY(-14px) rotate(-45deg); }
 
 .menu-overlay {
   position: fixed;
