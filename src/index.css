@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: #5D5C61;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Open Sans", "Poppins", "Raleway", "Fjalla One", "Montserrat",
     "Lato", "Comfortaa", sans-serif;
@@ -13,9 +14,60 @@ code {
 }
 
 /* tsParticles only makes its canvas fixed/full-screen once it initializes;
-   until then it sits in normal flow and pushes page content ~800px down,
-   which makes react-reveal think on-screen content is below the fold */
+   until then it sits in normal flow and pushes page content down */
 #tsparticles {
   position: fixed;
   inset: 0;
+}
+
+/* keyboard users get a visible focus ring; mouse/touch users don't */
+:focus-visible {
+  outline: 2px solid #7395AE;
+  outline-offset: 3px;
+}
+
+/* entrance animations used by components/motion.jsx */
+.reveal {
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-fade { animation-name: fade; }
+.reveal-fade-down { animation-name: fade-down; }
+.reveal-fade-up { animation-name: fade-up; }
+.reveal-bounce-left { animation-name: bounce-left; animation-timing-function: ease-out; }
+.reveal-bounce-right { animation-name: bounce-right; animation-timing-function: ease-out; }
+.reveal-rise {
+  display: inline-block;
+  animation-name: fade-up;
+  animation-duration: 600ms;
+}
+
+.text-loop {
+  display: inline-block;
+  animation: text-loop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes fade { from { opacity: 0; } }
+@keyframes fade-down { from { opacity: 0; transform: translateY(-30px); } }
+@keyframes fade-up { from { opacity: 0; transform: translateY(20px); } }
+@keyframes text-loop-in { from { opacity: 0; transform: translateY(0.5em); } }
+@keyframes bounce-left {
+  0% { opacity: 0; transform: translateX(-60vw); }
+  60% { opacity: 1; transform: translateX(25px); }
+  75% { transform: translateX(-10px); }
+  90% { transform: translateX(5px); }
+  100% { transform: none; }
+}
+@keyframes bounce-right {
+  0% { opacity: 0; transform: translateX(60vw); }
+  60% { opacity: 1; transform: translateX(-25px); }
+  75% { transform: translateX(10px); }
+  90% { transform: translateX(-5px); }
+  100% { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .text-loop {
+    animation-duration: 1ms !important;
+  }
 }

@@ -1,58 +1,87 @@
 import styled from 'styled-components';
 
-
-export const Heading = styled.h1`
-  /* normal flow (was absolutely positioned rows at fixed offsets, which
-     overflowed off-screen whenever 3 x 420px cards didn't fit the width) -
-     relative + z-index keeps it above the fixed particle canvas */
+export const Wrapper = styled.section`
+  /* relative + z-index keeps it above the fixed particle canvas */
   position: relative;
   z-index: 1;
-  margin: 0;
-  padding: clamp(56px, 6vh, 72px) 0 8vh;
+  box-sizing: border-box;
+  max-width: 940px;
+  margin: 0 auto;
+  padding: clamp(64px, 8vh, 96px) 20px 8vh;
+  font-family: Montserrat, sans-serif;
 
   .introLine {
-    margin-bottom: 0.6em;
+    margin: 0 0 0.8em;
     font-size: clamp(36px, 5vw, 72px);
     font-weight: normal;
     text-align: center;
-    pointer-events: none;
-    user-select: none;
-    font-family: Montserrat;
     color: #c0c3c4;
+    user-select: none;
   }
 
-  .cardGroup {
+  .cardGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+    gap: 28px;
+  }
+
+  .card {
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.94);
+    color: #3a393e;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  a.card:hover,
+  a.card:focus-visible {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+  }
+
+  .thumb {
+    display: flex;
     align-items: center;
-    gap: 40px;
-    /* card titles inherit this; descriptions are fixed at 0.875rem by
-       the library, so keep titles a step above that */
-    font-size: clamp(17px, 1.3vw, 20px);
-    font-weight: normal;
-    font-family: Montserrat;
-  }
-
-  .cardRow1,
-  .cardRow2 {
-    display: flex;
-    flex-flow: row wrap;
     justify-content: center;
-    gap: 40px 30px;
-    font-family: Montserrat;
+    height: 180px;
+    background: #47464b;
   }
 
-  /* TaggedContentCard renders a fixed 420px-wide card with only
-     max-width:100% to shrink it, which doesn't resolve against a
-     column-direction flex parent - it stays 420px and overflows/clips
-     on any viewport narrower than ~490px. Cap the actual card width
-     instead of relying on the library's max-width. */
-  .cardRow1 > a > div,
-  .cardRow2 > a > div {
-    width: min(420px, 85vw) !important;
+  .thumb img {
+    height: 128px;
+    width: 128px;
+    object-fit: contain;
   }
-`;
 
+  .body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px 24px 22px;
+  }
 
-export const Wrapper = styled.section`
+  h2 {
+    margin: 0 0 0.4em;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  p {
+    margin: 0;
+    flex: 1;
+    font-family: Lato, sans-serif;
+    font-size: 1rem;
+    line-height: 1.55;
+    color: #5D5C61;
+  }
+
+  .cta {
+    margin-top: 14px;
+    font-size: 0.9rem;
+    color: #557A95;
+  }
 `;

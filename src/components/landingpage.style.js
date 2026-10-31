@@ -7,7 +7,7 @@ export const Heading = styled.h1`
   white-space: nowrap;
   overflow: hidden;
 
-  /* the longest line ("I'm a Photographer from TUM.") doesn't fit
+  /* the longest line ("I'm a photographer at TUM.") doesn't fit
      on one line at this font-size on a phone-width screen. Capping
      the font-size (previous approach) made ALL mobile text smaller
      than it needed to be just to accommodate that one worst case.
@@ -54,20 +54,9 @@ export const Heading = styled.h1`
     }
   }
 
-  /* Remove default focus from target elements */  
-  .city-link:focus,
-  .city-link_content:focus {
-    outline: none;
-  }
-
   .scrollTitle {
       color: #7395AE;
       pointer-events: none;
-      /* react-text-loop's wrapper width lags the incoming word by a render
-         frame, so it can be a bit narrower than the word it's sizing;
-         this buffer keeps that lag from eating the space before "from"
-         (kept small - there's already a real space after it) */
-      padding-right: 0.15em;
   }
 
   .helloTitle {
@@ -83,7 +72,7 @@ export const Heading = styled.h1`
     transform: translate(-50%, -80%);
     /* fixed width so the block doesn't re-center (and jump sideways)
        every time the carousel word changes length. 15.2em fits the
-       longest line, "I'm a Photographer from TUM." (~14.9em).
+       longest line, "I'm a photographer at TUM.".
        Explicit width also matters on mobile: a fixed box at left:50%
        otherwise only gets half the viewport to wrap in. */
     width: min(15.2em, calc(100vw - 32px));
